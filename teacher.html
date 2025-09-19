@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal - EduERP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="user-teacher">
+    <div class="container">
+        <!-- Teacher Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h1>EduERP Teacher</h1>
+            </div>
+
+            <!-- Teacher Navigation Menu -->
+            <nav class="header-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-module="classes">
+                        <i class="fas fa-chalkboard"></i>
+                        <span>My Classes</span>
+                    </li>
+                    <li class="nav-item" data-module="students">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Students</span>
+                    </li>
+                    <li class="nav-item" data-module="grading">
+                        <i class="fas fa-edit"></i>
+                        <span>Grading</span>
+                    </li>
+                    <li class="nav-item" data-module="attendance">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </li>
+                    <li class="nav-item" data-module="assignments">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Assignments</span>
+                    </li>
+                    <li class="nav-item" data-module="reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Teacher Header Controls -->
+            <div class="header-user-controls">
+                <div class="user-info-header" id="userInfoHeader">
+                    <span>Welcome, Professor</span>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn notification-btn" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                    <button class="header-btn profile-btn" title="Profile" onclick="openProfileMenu()">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </button>
+                    <button class="header-btn logout-btn" onclick="logout()" title="Logout" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="btn-text">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Teacher Main Content -->
+        <main class="main-content">
+            <!-- Teacher Welcome Section -->
+            <div class="user-info user-info-teacher">
+                <span>Welcome, Professor</span>
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+
+            <!-- Teacher Dashboard -->
+            <div id="dashboard" class="module active">
+                <div class="module-header">
+                    <h2>Teacher Dashboard</h2>
+                    <div class="teacher-actions">
+                        <button class="btn btn-primary" onclick="gradeAssignments()">
+                            <i class="fas fa-edit"></i> Grade Assignments
+                        </button>
+                        <button class="btn btn-success" onclick="createAssignment()">
+                            <i class="fas fa-plus"></i> Create Assignment
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="teacher-stats-grid">
+                    <div class="stat-card teacher-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>4</h3>
+                            <p>Classes Teaching</p>
+                            <small>This semester</small>
+                        </div>
+                    </div>
+                    <div class="stat-card teacher-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>156</h3>
+                            <p>Total Students</p>
+                            <small>Across all classes</small>
+                        </div>
+                    </div>
+                    <div class="stat-card teacher-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>23</h3>
+                            <p>Assignments to Grade</p>
+                            <small>Pending review</small>
+                        </div>
+                    </div>
+                    <div class="stat-card teacher-card">
+                        <div class="stat-icon bg-danger">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2</h3>
+                            <p>Classes Today</p>
+                            <small>Next: 2:00 PM</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-content-grid">
+                    <div class="teacher-section">
+                        <h3>My Classes</h3>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Computer Science 101</h4>
+                                    <p>45 students • Room 201A</p>
+                                </div>
+                                <div class="class-time">Mon, Wed, Fri 10:00 AM</div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Advanced Programming</h4>
+                                    <p>32 students • Room 301B</p>
+                                </div>
+                                <div class="class-time">Tue, Thu 2:00 PM</div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Data Structures</h4>
+                                    <p>38 students • Room 205</p>
+                                </div>
+                                <div class="class-time">Mon, Wed 3:00 PM</div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Software Engineering</h4>
+                                    <p>41 students • Room 150</p>
+                                </div>
+                                <div class="class-time">Fri 1:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-section">
+                        <h3>Recent Student Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-file-upload"></i>
+                                <span>John Doe submitted Assignment 3</span>
+                                <small>2 hours ago</small>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Sarah Wilson asked a question in forum</span>
+                                <small>4 hours ago</small>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mike Johnson completed quiz</span>
+                                <small>1 day ago</small>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Emma Davis missed assignment deadline</span>
+                                <small>2 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher Classes Module -->
+            <div id="classes" class="module">
+                <div class="module-header">
+                    <h2>My Classes</h2>
+                    <button class="btn btn-primary" onclick="createNewClass()">
+                        <i class="fas fa-plus"></i> Create Class
+                    </button>
+                </div>
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>Computer Science 101</h3>
+                            <div class="class-status active">Active</div>
+                        </div>
+                        <div class="class-details">
+                            <p><i class="fas fa-users"></i> 45 Students</p>
+                            <p><i class="fas fa-clock"></i> Mon, Wed, Fri 10:00 AM</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Room 201A</p>
+                        </div>
+                        <div class="class-progress">
+                            <div class="progress-info">
+                                <span>Course Progress</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn btn-sm btn-primary">Manage</button>
+                            <button class="btn btn-sm btn-outline">Attendance</button>
+                            <button class="btn btn-sm btn-outline">Grades</button>
+                        </div>
+                    </div>
+                    <!-- More class cards... -->
+                </div>
+            </div>
+
+            <!-- Teacher Grading Module -->
+            <div id="grading" class="module">
+                <div class="module-header">
+                    <h2>Grading Center</h2>
+                </div>
+                <div class="grading-summary">
+                    <div class="grading-stats">
+                        <div class="grading-stat">
+                            <h4>23</h4>
+                            <p>Pending Assignments</p>
+                        </div>
+                        <div class="grading-stat">
+                            <h4>156</h4>
+                            <p>Total Submissions</p>
+                        </div>
+                        <div class="grading-stat">
+                            <h4>4.2</h4>
+                            <p>Average Grade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="assignments-to-grade">
+                    <h3>Assignments to Grade</h3>
+                    <div class="assignment-list">
+                        <div class="assignment-item">
+                            <div class="assignment-info">
+                                <h4>Programming Assignment 3</h4>
+                                <p>Computer Science 101 • Due: Oct 20, 2024</p>
+                            </div>
+                            <div class="assignment-stats">
+                                <span class="submissions">12/45 graded</span>
+                                <button class="btn btn-sm btn-primary">Grade Now</button>
+                            </div>
+                        </div>
+                        <!-- More assignments... -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Teacher Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Teacher Portal</h3>
+                    <p>Empowering educators, inspiring students</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#classes">My Classes</a></li>
+                        <li><a href="#grading">Grading</a></li>
+                        <li><a href="#reports">Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Teaching Resources</a></li>
+                        <li><a href="#">Faculty Handbook</a></li>
+                        <li><a href="#">IT Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set user type for teacher portal
+        document.addEventListener('DOMContentLoaded', function () {
+            const teacherUser = {
+                userType: 'teacher',
+                fullName: 'Dr. Sarah Wilson',
+                email: 'sarah.wilson@teacher.edu',
+                employeeId: 'TCH001',
+                department: 'Computer Science',
+                loginTime: new Date().toISOString()
+            };
+            localStorage.setItem('erp_user_data', JSON.stringify(teacherUser));
+            currentUser = teacherUser;
+        });
+    </script>
+</body>
+
+</html>
