@@ -125,9 +125,8 @@ body {
 .header-nav {
     flex: 1;
     display: flex;
-    justify-content: center;
-    overflow: hidden;
-    margin: 0 1rem;
+    justify-content: space-between;
+    margin: 0 20px;
 }
 
 .nav-menu {
@@ -2124,8 +2123,11 @@ body {
 }
 
 .btn-sm {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.4rem;
     font-size: 0.9rem;
+    min-height: 40px;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 /* Responsive Design for LMS */
@@ -2168,8 +2170,9 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}/* 
-User Info Header (Sticky) */
+}
+
+/* User Info Header (Sticky) */
 .user-info-header {
     display: flex;
     align-items: center;
@@ -2227,12 +2230,13 @@ User Info Header (Sticky) */
     font-size: 0.8rem;
 }
 
-/* Expanded Button Styles */
+/* Fixed Button Styles */
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.6rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 2rem;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
@@ -2241,6 +2245,11 @@ User Info Header (Sticky) */
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-md);
+    white-space: nowrap;
+    overflow: visible;
+    line-height: 1.5;
+    min-height: 48px;
+    text-align: center;
 }
 
 .btn:hover {
@@ -2310,13 +2319,19 @@ User Info Header (Sticky) */
 }
 
 .btn-sm {
-    padding: 0.3rem 0.75rem;
-    font-size: 0.7rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    min-height: 40px;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 .btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+    min-height: 56px;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 /* Compact Form Styles */
@@ -2736,8 +2751,9 @@ User Info Header (Sticky) */
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border-light);
-}/* Lo
-gin Page Styles */
+}
+
+/* Login Page Styles */
 .login-container {
     min-height: 100vh;
     display: flex;
@@ -3180,8 +3196,9 @@ gin Page Styles */
         padding: 0.5rem;
         font-size: 0.7rem;
     }
-}/* Ad
-ditional Sticky Header Enhancements */
+}
+
+/* Additional Sticky Header Enhancements */
 .header {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -3235,8 +3252,9 @@ html {
     .header {
         transition: none;
     }
-}/* ====
-= COMPREHENSIVE ADMIN STYLES ===== */
+}
+
+/* ===== COMPREHENSIVE ADMIN STYLES ===== */
 
 /* Admin Dashboard Tabs */
 .admin-tabs {
@@ -3698,10 +3716,11 @@ html {
 .header-user-controls {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px 0;
     flex-shrink: 0;
-    min-width: 180px;
-    justify-content: flex-end;
+    min-width: 200px;
+    justify-content: start;
+    margin-right:20px;
 }
 
 .header-actions {
@@ -3737,7 +3756,7 @@ html {
 }
 
 .header-btn i {
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .logout-btn {
@@ -3811,7 +3830,7 @@ html {
     
     .header-user-controls {
         min-width: 120px;
-        gap: 0.25rem;
+        gap: 20px;
     }
     
     .btn-text {
@@ -4259,7 +4278,7 @@ html {
     position: relative;
 }
 
-.header-btn i {
+eader-btn i {
     font-size: 1.1rem;
 }
 
@@ -5198,5 +5217,159 @@ html {
     .assignment-stats {
         align-self: stretch;
         justify-content: space-between;
+    }
+}/* =====
+ BUTTON TEXT FIX ===== */
+
+/* Fix button text display issues */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-outline {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.5 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Ensure adequate padding for text */
+.btn {
+    padding: 0.9rem 2.2rem !important;
+    min-width: fit-content !important;
+}
+
+.btn-sm {
+    padding: 0.7rem 1.6rem !important;
+    min-width: fit-content !important;
+}
+
+.btn-lg {
+    padding: 1.2rem 2.8rem !important;
+    min-width: fit-content !important;
+}
+
+/* Fix specific button types */
+.module-header .btn {
+    padding: 0.8rem 2rem !important;
+    white-space: nowrap !important;
+    min-width: auto !important;
+}
+
+.student-actions .btn,
+.teacher-actions .btn,
+.admin-actions .btn {
+    padding: 0.8rem 2rem !important;
+    white-space: nowrap !important;
+    min-width: auto !important;
+}
+
+/* Fix form buttons */
+.form-actions .btn {
+    padding: 0.8rem 2rem !important;
+    min-width: 140px !important;
+    white-space: nowrap !important;
+}
+
+/* Fix course action buttons */
+.course-actions .btn {
+    padding: 0.6rem 1.4rem !important;
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+}
+
+.class-actions .btn {
+    padding: 0.6rem 1.4rem !important;
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+}
+
+/* Fix assignment buttons */
+.assignment-stats .btn {
+    padding: 0.6rem 1.4rem !important;
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+}
+
+/* Fix maintenance buttons */
+.maintenance-btn {
+    padding: 0.8rem 1.5rem !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+/* Fix user management buttons */
+.user-management-actions .btn {
+    padding: 0.8rem 2rem !important;
+    white-space: nowrap !important;
+}
+
+/* Ensure text is fully visible in all button states */
+.btn:hover,
+.btn:focus,
+.btn:active {
+    white-space: nowrap !important;
+    overflow: visible !important;
+}
+
+/* Fix button icons and text spacing */
+.btn i {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn i:last-child {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* Responsive fixes for button text */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.8rem 1.8rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .btn-sm {
+        padding: 0.6rem 1.4rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .btn-lg {
+        padding: 1rem 2.2rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.7rem 1.5rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .module-header .btn {
+        width: 100% !important;
+        margin-top: 1rem !important;
+        padding: 0.8rem 1rem !important;
+    }
+    
+    .student-actions,
+    .teacher-actions,
+    .admin-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .student-actions .btn,
+    .teacher-actions .btn,
+    .admin-actions .btn {
+        width: 100% !important;
+        padding: 0.8rem 1rem !important;
     }
 }
