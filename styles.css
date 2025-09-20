@@ -431,7 +431,7 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 
 .header-nav .nav-menu {
@@ -2223,12 +2223,7 @@ body {
     transform: scale(1.1);
 }
 
-.logout-btn::before {
-    content: '\f2f5';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    font-size: 0.8rem;
-}
+
 
 /* Fixed Button Styles */
 .btn {
@@ -3733,7 +3728,7 @@ html {
 .header-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 0.5rem 0.75rem;
     border: none;
     border-radius: 6px;
@@ -3741,13 +3736,14 @@ html {
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 500;
     position: relative;
     white-space: nowrap;
     flex-shrink: 0;
     min-height: 36px;
     z-index: 1001;
+    width:50px;
 }
 
 .header-btn:hover {
@@ -3756,7 +3752,7 @@ html {
 }
 
 .header-btn i {
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
 .logout-btn {
